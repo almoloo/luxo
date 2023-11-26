@@ -1,7 +1,7 @@
 interface SuperUser extends User {
   account: string;
 }
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "next-auth";
 import { createPublicClient, http, getContract, getAddress } from "viem";
@@ -65,12 +65,21 @@ export const authOptions: NextAuthOptions = {
     signIn: "/",
   },
   callbacks: {
-    async jwt({ token, user, session, account, profile }) {
+    async jwt({ token, user }) {
       const extendedUser = user as SuperUser;
       if (extendedUser?.account) {
         token.name = extendedUser.account;
       }
       return token;
+    },
+    async session({ session, token }) {
+      let newSession: Session = session;
+      if (token) {
+        newSession.expires = new Date(
+          (token.exp as number) * 1000
+        ).toISOString();
+      }
+      return newSession;
     },
   },
 };
