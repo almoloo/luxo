@@ -108,7 +108,6 @@ export default function Dashboard() {
       console.log("Uploaded profile to Pinata IPFS with IPFS Hash:", ipfsHash);
 
       const web3 = new Web3(window.ethereum);
-      //   async function editProfile() {
       const schema = [
         {
           name: "LSP3Profile",
@@ -122,27 +121,26 @@ export default function Dashboard() {
         ipfsGateway: "https://api.universalprofile.cloud/ipfs",
       });
 
-      const encodedData = erc725.encodeData({
-        keyName: "LSP3Profile",
-        value: {
-          hashFunction: "keccak256(utf8)",
-          hash: web3.utils.keccak256(JSON.stringify(formData)),
-          url: `ipfs://${ipfsHash}`,
-        },
-      });
-      //   }
+      //   const encodedData = erc725.encodeData({
+      //     keyName: 'LSP3Profile',
+      //     value: {
+      //       hashFunction: "keccak256(utf8)",
+      //       hash: web3.utils.keccak256(JSON.stringify(formData)),
+      //       url: `ipfs://${ipfsHash}`,
+      //     },
+      //   });
 
-      const universalProfileContract = new web3.eth.Contract(
-        UniversalProfile.abi,
-        address
-      );
+      //   const universalProfileContract = new web3.eth.Contract(
+      //     UniversalProfile.abi,
+      //     address
+      //   );
 
-      await universalProfileContract.methods
-        .setData(encodedData.keys[0], encodedData.values[0])
-        .send({
-          from: address,
-          gasLimit: 300_000,
-        });
+      //   await universalProfileContract.methods
+      //     .setData(encodedData.keys[0], encodedData.values[0])
+      //     .send({
+      //       from: address,
+      //       gasLimit: 300_000,
+      //     });
 
       setProfileData({
         ...profileData,
