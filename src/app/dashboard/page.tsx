@@ -243,7 +243,7 @@ export default function Dashboard() {
                             setFormData({
                               ...formData,
                               links: [
-                                ...formData.links,
+                                ...formData.links!,
                                 { title: e.target.value, url: link.url },
                               ],
                             })
