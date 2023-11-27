@@ -54,7 +54,7 @@ export default function Page(props: Props) {
             You can use this URL to share your profile with others:
           </p>
           <Link href={`/profile/${address}`} className="text-xs break-all">
-            {`https://luxo.vercel.app/profile/${address}`}
+            {`${process.env.NEXT_PUBLIC_URL}/profile/${address}`}
           </Link>
         </div>
       )}
