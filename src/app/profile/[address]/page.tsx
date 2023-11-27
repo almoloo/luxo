@@ -53,8 +53,8 @@ export default function Page(props: Props) {
           <p className="text-sm text-slate-400 mb-2">
             You can use this URL to share your profile with others:
           </p>
-          <Link href={`/profile/${address}`} className="text-xs">
-            {`https://luxo.vercel.app/profile/${address}`}
+          <Link href={`/profile/${address}`} className="text-xs break-all">
+            {`https://luxo-git-main-almoloo.vercel.app/profile/${address}`}
           </Link>
         </div>
       )}
