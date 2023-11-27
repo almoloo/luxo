@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
           type: "text",
         },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         try {
           const contract = getContract({
             abi: UniversalProfileContract.abi,
@@ -45,10 +45,16 @@ export const authOptions: NextAuthOptions = {
           ]);
 
           if (isValidSignature === "0x1626ba7e") {
-            return {
+            interface extendedUser extends User {
+              account: any;
+              signature: any;
+            }
+            const user: extendedUser = {
+              id: credentials?.account || "0",
               account: credentials?.account,
               signature: credentials?.signature,
             };
+            return user;
           }
           return null;
         } catch (error) {
