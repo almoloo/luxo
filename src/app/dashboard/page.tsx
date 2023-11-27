@@ -324,7 +324,7 @@ export default function Dashboard() {
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            tags: [...formData.tags, e.target.value],
+                            tags: [...(formData.tags || []), e.target.value],
                           })
                         }
                         disabled={submitting}
@@ -334,7 +334,9 @@ export default function Dashboard() {
                         onClick={() => {
                           setFormData({
                             ...formData,
-                            tags: formData.tags.filter((_, i) => i !== index),
+                            tags: (formData.tags || []).filter(
+                              (_, i) => i !== index
+                            ),
                           });
                         }}
                         disabled={submitting}
