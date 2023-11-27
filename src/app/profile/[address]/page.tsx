@@ -29,6 +29,7 @@ export default function Page(props: Props) {
       try {
         const retProfileData = await getProfileData(address, false);
         if (!retProfileData) throw new Error("Profile not found");
+        console.log(retProfileData);
         setProfileData(retProfileData);
       } catch (error) {
         console.log(error);

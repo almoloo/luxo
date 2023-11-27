@@ -27,7 +27,7 @@ export const getProfileData = async (
 
     const profileData: any = (await erc725.fetchData("LSP3Profile")).value; //?.LSP3Profile;
     if (profileData.LSP3Profile) {
-      return profileData as LSP3Profile;
+      return profileData.LSP3Profile as LSP3Profile;
     } else {
       return {
         description: "",
