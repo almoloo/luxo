@@ -27,17 +27,14 @@ import { useState } from "react";
 import { Loader2, ChevronsRight } from "lucide-react";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default function ConnectButton() {
   const { data: session } = useSession();

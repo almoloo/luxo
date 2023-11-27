@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@erc725/erc725.js": "^0.21.2",
+    "@hookform/resolvers": "^3.3.2",
     "@lukso/lsp-factory.js": "^3.2.1",
     "@lukso/lsp-smart-contracts": "^0.12.1",
     "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
+    "axios": "^1.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.293.0",
@@ -22,11 +26,13 @@
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.48.2",
     "siwe": "^2.1.4",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^1.19.6",
-    "web3": "^4.2.2"
+    "web3": "^4.2.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
